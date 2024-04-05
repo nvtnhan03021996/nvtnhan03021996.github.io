@@ -20,11 +20,28 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <div class="w3-top">
   <div class="w3-bar w3-pink w3-card w3-left-align w3-large">
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-pink" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">HIV</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Tự xét nghiệm</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Hướng dẫn</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Liên hệ</a>
+
+    <form id="home" method="post" action="tuxetnghiemHIV.html">
+        <input type="submit" class="w3-bar-item w3-button w3-padding-large w3-white" value="Home">
+    </form>
+
+    <form id="hivlagi" method="post" action="hivlagi.html">
+        <input type="submit" class="w3-bar-item w3-button w3-padding-large" value="HIV">
+    </form>
+
+
+    <form id="tuxetnghiemlagi" method="post" action="tuxetnghiemlagi.html">
+        <input type="submit" class="w3-bar-item w3-button w3-padding-large" value="Tự xét nghiệm">
+    </form>
+
+    <form id="huongdan" method="post" action="huongdan.html">
+        <input type="submit" class="w3-bar-item w3-button w3-padding-large" value="Hướng dẫn">
+    </form>
+
+    <form id="lienhe" method="post" action="lienhe.html">
+        <input type="submit" class="w3-bar-item w3-button w3-padding-large" value="Liên hệ">
+    </form>
+
   </div>
 
   <!-- Navbar on small screens -->
@@ -36,12 +53,19 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   </div>
 </div>
 
+
 <!-- Header -->
 <header class="w3-container w3-pink w3-center" style="padding:128px 16px">
   <h1 class="w3-margin w3-jumbo">TỰ XÉT NGHIỆM</h1>
   <p class="w3-xlarge">Đặt sinh sinh phẩm tự xét nghiệm HIV miễn phí</p>
-  <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Đặt hàng</button>
+  
+
+  <form id="dathang" method="post" action="sanglochanhvinguyco.html"> 
+  <input type="submit" class="w3-button w3-black w3-padding-large w3-large w3-margin-top" value="Đặt hàng"/>
+  </form>
 </header>
+
+
 
 <!-- First Grid -->
 <div class="w3-row-padding w3-padding-64 w3-container">
@@ -49,8 +73,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <div class="w3-twothird">
       <h1>Tự xét nghiệm là gì</h1>
       <h5 class="w3-padding-32">Tự xét nghiệm HIV là khi một người tự lấy mẫu bệnh phẩm, tự thực hiện xét nghiệm và tự đọc kết quả. Bạn có thể thực hiện việc tự xét nghiệm HIV tại nhà hoặc bất cứ nơi nào mà bạn thấy thuận tiện và đảm bảo riêng tư.</h5>
-
-      <p class="w3-text-grey">Chi tiết</p>
+        <form id="chitiet" method="post" action="tuxetnghiemlagi.html">
+        <input type="submit" class="w3-text-black w3-bar-item w3-button w3-padding-large w3-pink" value="Chi tiết">
     </div>
 
     <div class="w3-third w3-center">
@@ -59,6 +83,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     </div>
   </div>
 </div>
+
 
 <!-- Second Grid -->
 <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
@@ -72,8 +97,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <div class="w3-twothird">
       <h1>HIV là gì</h1>
       <h5 class="w3-padding-32">HIV là tên viết tắt tiếng Anh của vi rút gây suy giảm miễn dịch ở người (Human Immunodeficiency Virus). Ước tính năm 2020 có khoảng 38 triệu người nhiễm HIV trên toàn thế giới. Tại Việt Nam số người nhiễm HIV ước tính là 230.000.</h5>
-
-      <p class="w3-text-grey">Chi tiết.</p>
+        <form id="chitiet" method="post" action="hivlagi.html">
+        <input type="submit" class="w3-text-black w3-bar-item w3-button w3-padding-large w3-pink" value="Chi tiết">
+    </form>
     </div>
   </div>
 </div>
@@ -87,9 +113,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       
     </div>
 
-<!DOCTYPE html>
-<html>
-<head>
 <style>
 img {
   max-width: 100%;
@@ -99,15 +122,9 @@ img {
 </head>
 <body>
 
-<h2>Responsive Image</h2>
-
-<p>Responsive images will automatically adjust to fit the size of the screen.</p>
-<p>Resize the browser window to see the effect:</p>
-
 <img src="image/msmnh.jpg" alt="msm" width="1000" height="300">
 
 </body>
-</html>
 
 <!-- Footer -->
 <footer class="w3-container w3-padding-64 w3-center w3-opacity">  

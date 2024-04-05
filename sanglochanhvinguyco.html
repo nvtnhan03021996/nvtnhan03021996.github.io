@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="csstuxetnghiemhivver1.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+         
+            margin: 0;
+        }
+
+        /* CSS cho block-container */
+        .block-container {
+            position: none;
+            background-color: #fff;
+            padding: 20px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        #result-container {
+            display: none;
+            background-color: #fff;
+            padding: 20px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.5s ease-out;
+
+            width: 100%;
+
+        }
+
+        /* CSS cho hiệu ứng nổi lên */
+        .block-container.active {
+                opacity: 1;
+        }
+
+
+        h2 {
+            color: #3498db;
+        }
+
+        fieldset {
+            border: 2px solid #FFFFFF;
+            border-radius: 10px;
+            padding: 20px;
+            transition: transform 0.3s;
+            width: 100%;
+            margin-bottom: 20px;
+            display: block;
+            border-color: #1e7e34;
+            text-align: left;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            
+        }
+
+        from {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        p {
+            margin-top: 15px;
+            color: #333;
+        }
+
+    
+    </style>
+    <script>
+        function showResult() {
+            var answer1 = document.querySelector('input[name="group"]:checked').value;
+            var answer2 = document.querySelector('input[name="tested"]:checked').value;
+            var answer3 = document.querySelector('input[name="risk"]:checked').value;
+            var answer4 = document.querySelector('input[name="condom"]:checked').value;
+            var answer5 = document.querySelector('input[name="unknownSexualBehavior"]:checked').value;
+            var answer6 = document.querySelector('input[name="newQuestion"]:checked').value;
+
+            var resultContainer = document.getElementById('result-container');
+            var resultMessage = document.getElementById('result-message');
+            var resultLink = document.getElementById('result-link');
+
+            resultContainer.style.display = 'block';
+
+            if (answer1 === 'other' && answer2 === 'never' && answer3 === 'other' && answer4 === 'always' && answer5 === 'no' && answer6 === 'no') {
+                resultContainer.innerHTML = '<p>Thông tin về HIV</p>';
+            } else {
+                resultContainer.innerHTML = '<p>Bạn cần xét nghiệm sàng lọc HIV</p>';
+            }
+
+
+            // JavaScript để thêm hoặc xóa lớp active
+            var blockContainer = document.getElementById('block-container');
+
+            function showContainer() {
+                blockContainer.classList.add('active');
+            }
+
+            function hideContainer() {
+                blockContainer.classList.remove('active');
+            }
+
+
+        // Hiển thị link khi có kết quả
+            resultLink.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <div id="block-container">
+        <h2> <strong> ĐÁNH GIÁ HÀNH VI NGUY CƠ </strong></h2>
+
+    <!-- Câu 1 -->
+    <fieldset>
+        <strong>Câu 1: Bạn thuộc nhóm nào sau đây? (Có thể chọn nhiều hơn một)</strong><br>
+        <input type="checkbox" name="group" value="msm"> Nam quan hệ tình dục với nam<br>
+        <input type="checkbox" name="group" value="transgender"> Người chuyển giới<br>
+        <input type="checkbox" name="group" value="drugUser"> Người tiêm chích ma túy<br>
+        <input type="checkbox" name="group" value="syntheticDrugUser"> Người sử dụng ma túy tổng hợp<br>
+        <input type="checkbox" name="group" value="sexWorker"> Phụ nữ mại dâm<br>
+        <input type="checkbox" name="group" value="client"> Khách hàng của phụ nữ mại dâm<br>
+        <input type="checkbox" name="group" value="other"> Khác<br>
+    </fieldset>
+    
+
+    <!-- Câu 2 -->
+    <fieldset>
+        <strong>Câu 2: Bạn đã xét nghiệm HIV chưa?</strong><br>
+        <input type="radio" name="tested" value="never"> Chưa bao giờ xét nghiệm<br>
+        <input type="radio" name="tested" value="under6months"> Đã xét nghiệm dưới 6 tháng<br>
+        <input type="radio" name="tested" value="6to12months"> Đã xét nghiệm cách đây 6 đến 12 tháng<br>
+        <input type="radio" name="tested" value="over12months"> Đã xét nghiệm cách đây trên 12 tháng<br>
+    </fieldset>
+    
+
+    <!-- Câu 3 -->
+    <fieldset>
+        <strong>Câu 3: Trong vòng 12 tháng qua, bạn có nguy cơ nào sau đây? (Có thể chọn nhiều hơn một)</strong><br>
+        <input type="checkbox" name="risk" value="analSex"> Quan hệ tình dục qua đường hậu môn<br>
+        <input type="checkbox" name="risk" value="groupSex"> Quan hệ tình dục với 3 bạn tình trở lên<br>
+        <input type="checkbox" name="risk" value="std"> Mắc bệnh lây qua đường tình dục<br>
+        <input type="checkbox" name="risk" value="sexWithSexWorker"> Quan hệ tình dục với phụ nữ mại dâm<br>
+        <input type="checkbox" name="risk" value="transactionalSex"> Quan hệ tình dục để đối lấy tiền hoặc hiện vật<br>
+        <input type="checkbox" name="risk" value="syntheticDrugUse"> Sử dụng ma túy tổng hợp<br>
+        <input type="checkbox" name="risk" value="needleSharing"> Dùng chung bơm kim tiêm chích ma túy<br>
+        <input type="checkbox" name="risk" value="sexWithHivPositive"> Quan hệ tình dục với người nhiễm HIV<br>
+        <input type="checkbox" name="risk" value="other"> Khác<br>
+    </fieldset>
+    
+
+    <!-- Câu 4 -->
+    <fieldset>
+        <strong>Câu 4: Trong 12 tháng qua bạn có sử dụng bao cao su khi quan hệ tình dục không?</strong><br>
+        <input type="radio" name="condom" value="never"> Không sử dụng<br>
+        <input type="radio" name="condom" value="always"> Thường xuyên sử dụng<br>
+        <input type="radio" name="condom" value="rarely"> Thỉnh thoảng mới sử dụng<br>
+    </fieldset>
+    
+
+    <!-- Câu 5 -->
+    <fieldset>
+        <strong>Câu 5: Bạn có quan hệ tình dục với một ai đó mà bạn không biết rõ về các hành vi tình dục của họ?</strong><br>
+        <input type="radio" name="unknownSexualBehavior" value="yes"> Có<br>
+        <input type="radio" name="unknownSexualBehavior" value="no"> Không<br>
+        <input type="radio" name="unknownSexualBehavior" value="noMemory"> Không nhớ<br>
+    </fieldset>
+    
+
+    <!-- Câu hỏi mới -->
+    <fieldset>
+        <strong>Câu 6: Bạn có sử dụng chất kích thích không?</strong><br>
+        <input type="radio" name="newQuestion" value="yes"> Có<br>
+        <input type="radio" name="newQuestion" value="no"> Không<br>
+    </fieldset>
+    
+
+        <button onclick="showResult()">Kết quả</button>
+
+        <div id="result-container" style="display: none;">
+            <span id="result-container"></span>
+        <br>
+
+        </div>
+                  <form id="datsinhphamhiv" method="post" action="datsinhphamhiv.html">
+        <input type="submit" class="w3-text-black w3-bar-item w3-button w3-padding-large w3-pink" value="Đặt sinh phẩm">
+     
+    </div>
+</body>
+</html>
+
+
+
+
